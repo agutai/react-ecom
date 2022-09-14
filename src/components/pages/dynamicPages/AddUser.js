@@ -1,5 +1,4 @@
 import React, { Component} from 'react';
-import uuid from 'react-uuid';
 import RegisterFormInputMolecule from '../../molecules/RegisterFormInputMolecule';
 
 class AddUser extends Component {
@@ -11,7 +10,7 @@ class AddUser extends Component {
     };
 
   onHandleChange = (e)=>{
-    this.setState({ [e.target.fullName]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value })
   };
 
   onHandleSubmit = (e) =>{
@@ -33,8 +32,16 @@ class AddUser extends Component {
         return;
     }
 
-    const newUser = { id: uuid(), fullName: { fullName }, userName: { userName }, password: { password } }
-    console.log(newUser);
+    const newUser = { fullName: { fullName }, userName: { userName }, password: { password } }
+
+    fetch('http://localhost:8080/api/v1/ecommerce/user', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: newUser
+    })
 
     this.setState({ fullName: "", userName: "", password: ""});
 
@@ -50,7 +57,7 @@ class AddUser extends Component {
             <div className="mb-2">
                 <RegisterFormInputMolecule 
                 label="Full Name" 
-                fullName="fullName" 
+                name="fullName" 
                 placeholder="Please enter your full name."
                 value={fullName}
                 onChange={this.onHandleChange}
