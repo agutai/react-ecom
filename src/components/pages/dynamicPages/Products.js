@@ -7,9 +7,14 @@ class Products extends Component {
     };
 
     async componentDidMount() {
-      const response = await fetch('/api/v1/ecommerce/item');
+      const response = await fetch('api/v1/ecommerce/item',{
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }}
+      );
       const body = await response.json();
-      this.setState({products: body});
+      this.setState({products: body}); 
     }
 
   render()  {
