@@ -4,39 +4,39 @@ import RegisterFormInputMolecule from '../../molecules/RegisterFormInputMolecule
 
 class AddUser extends Component {
     state = {
-        name:"",
-        email:"",
-        phone:"", 
+        fullName:"",
+        userName:"",
+        password:"", 
         errors: {},
     };
 
   onHandleChange = (e)=>{
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.fullName]: e.target.value })
   };
 
   onHandleSubmit = (e) =>{
     e.preventDefault();
-    const { name,email,phone } = this.state;
+    const { fullName,userName,password } = this.state;
 
-    if(name === ""){
-        this.setState({errors:{name: "Name required"}})
+    if(fullName === ""){
+        this.setState({errors:{fullName: "Full Name required"}})
         return;
     }
 
-    if(email === ""){
-        this.setState({errors:{email: "Email required"}})
+    if(userName === ""){
+        this.setState({errors:{userName: "User Name required"}})
         return;
     }
 
-    if(phone === ""){
-        this.setState({errors:{phone: "Phone required"}})
+    if(password === ""){
+        this.setState({errors:{password: "Password required"}})
         return;
     }
 
-    const newStudent = { id: uuid(), name: { name }, phone: { phone }, email: { email } }
-    console.log(newStudent);
+    const newUser = { id: uuid(), fullName: { fullName }, userName: { userName }, password: { password } }
+    console.log(newUser);
 
-    this.setState({ name: "", email: "", phone: ""});
+    this.setState({ fullName: "", userName: "", password: ""});
 
   }
 

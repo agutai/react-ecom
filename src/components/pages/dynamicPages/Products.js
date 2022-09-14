@@ -3,41 +3,15 @@ import Product from './Product';
 
 class Products extends Component {
     state = {
-        products: [
-            {
-                id: "1",
-                title: "Product",
-                price: "£1.00",
-                colour: "Blue",
-                seller: "Rudy222",
-                buyer: "Finn94",
-            },
-            {
-                id: "2",
-                title: "Product",
-                price: "£1.00",
-                colour: "Red",
-                seller: "Rudy222",
-                buyer: "Finn94",
-            },
-            {
-                id: "3",
-                title: "Product",
-                price: "£1.00",
-                colour: "Yellow",
-                seller: "Rudy222",
-                buyer: "Finn94",
-            },
-            {
-                id: "4",
-                title: "Product",
-                price: "£1.00",
-                colour: "Green",
-                seller: "Rudy222",
-                buyer: "Finn94",
-            },
-        ],
+        products: [],
     };
+
+    async componentDidMount() {
+      const response = await fetch('/api/v1/ecommerce/item');
+      const body = await response.json();
+      this.setState({products: body});
+    }
+
   render()  {
     const {products} = this.state;
 
