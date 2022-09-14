@@ -1,0 +1,17 @@
+.fa-times, fa-sort-desc {
+  color: white;
+}
+
+.fa-times:hover {
+  color:red;
+  cursor: pointer;
+}
+
+.fa-sort-desc:hover {
+  color:red;
+  cursor: pointer;
+}
+
+.fa-user {
+  color: black;
+}
