@@ -47,7 +47,7 @@ class AddShoeItem extends Component {
 
     const newShoeItem = { title, price, colour, shoeSize, style };
     console.log(newShoeItem);
-    //axios send the post request with new employeed to backend
+    //axios send the post request with new shoeitem to backend
     axios.post(
       "http://localhost:8080/api/v1/ecommerce/item/shoeItem",
       newShoeItem
@@ -89,7 +89,7 @@ class AddShoeItem extends Component {
               <FormInputMolecule
                 name="price"
                 label="Price"
-                type="number"
+                type="text"
                 value={price}
                 placeholder="Please give a price for your listing. "
                 onChange={this.onHandleChange}
