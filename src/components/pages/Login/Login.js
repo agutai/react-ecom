@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Login.css";
 import axios from "axios";
 import FormInputMolecule from "../../molecules/FormInputMolecule";
+import { Navigate } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard";
 
 class Login extends Component {
@@ -36,17 +37,24 @@ class Login extends Component {
       .post("http://localhost:8080/api/v1/ecommerce/user/login", user)
       .then((data) => {
         let userData = data.data;
-        localStorage.setItem("userData", JSON.stringify(userData));
+        sessionStorage.setItem("userData", JSON.stringify(userData));
       });
 
-    var DataString = localStorage.getItem("userData");
-    console.log(DataString);
+    var DataString = sessionStorage.getItem("userData");
 
-    this.setState({ username: "", password: "" });
+    if (sessionStorage.getItem("userData")) {
+      console.log(DataString);
+      window.location.reload();
+    }
   };
 
   render() {
     const { username, password, errors } = this.state;
+
+    if (sessionStorage.getItem("userData")) {
+      return <Navigate to="/Dashboard" replace />;
+    }
+
     return (
       <div className="card">
         <div className="card-header h1 text-center">User Login</div>

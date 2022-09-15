@@ -24,8 +24,19 @@ class Products extends Component {
     const { products } = this.state;
 
     return (
-      <div style={{ marginBottom: "40px" }}>
-        <div className="bd-example">
+      <div
+        style={{
+          marginBottom: "140px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: "70px",
+          }}
+        >
           <div className="btn-group">
             <button
               type="button"
@@ -34,34 +45,25 @@ class Products extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Primary
+              Size
             </button>
             <div className="dropdown-menu">
               <a className="dropdown-item" href="/">
-                Action
+                1
               </a>
               <a className="dropdown-item" href="/">
-                Another action
+                2
               </a>
               <a className="dropdown-item" href="/">
-                Something else here
+                3
               </a>
               <div className="dropdown-divider"></div>
               <a className="dropdown-item" href="/">
-                Separated link
+                4
               </a>
             </div>
           </div>
           <div className="btn-group">
-            <button
-              type="button"
-              className="btn btn-secondary dropdown-toggle"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Secondary
-            </button>
             <div className="dropdown-menu">
               <a className="dropdown-item" href="/">
                 Action
@@ -86,7 +88,7 @@ class Products extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Success
+              Price
             </button>
             <div className="dropdown-menu">
               <a className="dropdown-item" href="/">
@@ -112,7 +114,7 @@ class Products extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Info
+              Seller
             </button>
             <div className="dropdown-menu">
               <a className="dropdown-item" href="/">
@@ -138,7 +140,7 @@ class Products extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Warning
+              Type
             </button>
             <div className="dropdown-menu">
               <a className="dropdown-item" href="/">
@@ -164,7 +166,7 @@ class Products extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Danger
+              Material
             </button>
             <div className="dropdown-menu">
               <a className="dropdown-item" href="/">

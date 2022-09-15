@@ -20,15 +20,10 @@ import AddShoeItem from "./components/pages/dynamicPages/AddShoeItem";
 import React from "react";
 
 function App() {
-  //DO NOT REMOVE THIS, DONT LISTEN TO THE CONSOLE
-  function setToken(userToken) {
-    sessionStorage.setItem("token", JSON.stringify(userToken));
-  }
-
   return (
     <Router>
       <div className="container">
-        <HeaderOrganism brand="LJAB Clothing" />
+        <HeaderOrganism brand="JLAB Clothing" />
         <NavSearchMolecule />
         <BannerOrganism />
         <Routes>
@@ -39,11 +34,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/report" element={<Report />} />
           <Route exact path="/order" element={<OrderItem />} />
-          <Route
-            exact
-            path="/login"
-            element={<Login setToken={setToken} />}
-          />{" "}
+          <Route exact path="/login" element={<Login />} />{" "}
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/Products" element={<Products />} />
           <Route path="/Item/:type" element={<Item />} />

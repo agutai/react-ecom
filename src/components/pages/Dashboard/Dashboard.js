@@ -1,16 +1,12 @@
-import React from 'react';
-import useToken from '../../App/useToken';
-import Login from '../Login/Login';
+import React from "react";
+import { Navigate } from "react-router-dom";
 
 export default function Dashboard() {
-  const { token, setToken } = useToken();
-
-  if(!token) {
-    return <Login setToken={setToken} />
+  if (!sessionStorage.getItem("userData")) {
+    return <Navigate to="/Login" replace />;
   }
-
-  return(
-    <div>
+  return (
+    <div style={{ marginBottom: "140px" }}>
       <h2>Dashboard</h2>
       <a href="/Report">Report A Problem</a>
     </div>
