@@ -16,6 +16,7 @@ import Dashboard from "./components/pages/Dashboard/Dashboard";
 import Report from "./components/pages/dynamicPages/Report";
 import OrderItem from "./components/pages/dynamicPages/OrderItem";
 import AddClothingItem from "./components/pages/dynamicPages/AddClothingItem";
+import AddShoeItem from "./components/pages/dynamicPages/AddShoeItem";
 import React from "react";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/" element={<ProductsButtonAtom />} />
           <Route exact path="/register" element={<AddUser />} />
           <Route exact path="/addClothing" element={<AddClothingItem />} />
+          <Route exact path="/addShoe" element={<AddShoeItem />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/report" element={<Report />} />
           <Route exact path="/order" element={<OrderItem />} />

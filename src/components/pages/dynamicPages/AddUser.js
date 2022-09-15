@@ -1,12 +1,11 @@
+import axios from "axios";
 import React, { Component } from "react";
 import FormInputMolecule from "../../molecules/FormInputMolecule";
-// import { response } from 'express';
-import axios from "axios";
 
 class AddUser extends Component {
   state = {
     fullName: "",
-    userName: "",
+    username: "",
     password: "",
     errors: {},
   };
@@ -18,109 +17,71 @@ class AddUser extends Component {
   onHandleSubmit = (e) => {
     e.preventDefault();
 
-    const { fullName, userName, password } = this.state;
+    const { fullName, username, password } = this.state;
 
     if (fullName === "") {
-      this.setState({ errors: { fullName: "Full Name required" } });
+      this.setState({ errors: { fullName: "Full name is required." } });
       return;
     }
 
-    if (userName === "") {
-      this.setState({ errors: { userName: "User Name required" } });
+    if (username === "") {
+      this.setState({ errors: { username: "Username is required." } });
       return;
     }
 
     if (password === "") {
-      this.setState({ errors: { password: "Password required" } });
+      this.setState({ errors: { password: "Password is required." } });
       return;
     }
 
-    // const newUser = { fullName, userName, password };
+    const newUser = { fullName, username, password };
+    console.log(newUser);
 
-    // console.log(newUser);
+    axios.post("http://localhost:8080/api/v1/ecommerce/user", newUser);
 
-    // fetch("http://localhost:8080/api/v1/ecommerce/user", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: newUser,
-    // });
-
-    // axios.post("http://localhost:8080/api/v1/ecommerce/user", newUser);
-
-    var newUser = { fullName, userName, password };
-
-    var axios = require("axios");
-    var config = {
-      method: "post",
-      url: "http://localhost:8080/api/v1/ecommerce/user",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: newUser,
-    };
-
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    this.setState({ fullName: "", username: "", password: "" });
   };
 
   render() {
-    const { fullName, userName, password, errors } = this.state;
+    const { fullName, username, password, errors } = this.state;
     return (
       <div className="card">
-        <div className="card-header text-center">
-          <h1>User Registration</h1>
+        <div className="card-header h1 text-center">
+          Employee Registration Form
         </div>
         <div className="card-body">
           <form onSubmit={this.onHandleSubmit}>
-            <div className="mb-2">
-              <FormInputMolecule
-                label="Full Name"
-                id="fullName"
-                name="fullName"
-                placeholder="Please enter your full name."
-                value={fullName}
-                onChange={this.onHandleChange}
-                error={errors.fullName}
-                type="text"
-              />
-            </div>
-            <div className="mb-2">
-              <FormInputMolecule
-                label="User Name"
-                id="userName"
-                name="userName"
-                placeholder="Please enter your user name."
-                value={userName}
-                onChange={this.onHandleChange}
-                error={errors.userName}
-                type="text"
-              />
-            </div>
-            <div className="mb-2">
-              <FormInputMolecule
-                label="Password"
-                id="password"
-                name="password"
-                placeholder="Please enter your password."
-                value={password}
-                onChange={this.onHandleChange}
-                error={errors.password}
-                type="text"
-              />
-            </div>
-            <input
-              type="submit"
-              value="register"
-              className="btn btn-outline-primary float-end"
+            <FormInputMolecule
+              id="fullName"
+              label="fullName"
+              name="fullName"
+              placeholder="Full Name"
+              value={fullName}
+              onChange={this.onHandleChange}
+              error={errors.fullName}
             />
+
+            <FormInputMolecule
+              id="username"
+              label="User Name"
+              name="username"
+              placeholder="Username"
+              value={username}
+              onChange={this.onHandleChange}
+              error={errors.username}
+            />
+
+            <FormInputMolecule
+              id="password"
+              label="Password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={this.onHandleChange}
+              error={errors.password}
+            />
+
+            <input type="submit" className="btn btn-success" value="register" />
           </form>
         </div>
       </div>
