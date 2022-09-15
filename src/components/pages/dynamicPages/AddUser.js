@@ -46,9 +46,7 @@ class AddUser extends Component {
     const { fullName, username, password, errors } = this.state;
     return (
       <div className="card">
-        <div className="card-header h1 text-center">
-          Employee Registration Form
-        </div>
+        <div className="card-header h1 text-center">User Registration</div>
         <div className="card-body">
           <form onSubmit={this.onHandleSubmit}>
             <FormInputMolecule
