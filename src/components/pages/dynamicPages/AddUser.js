@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import RegisterFormInputMolecule from "../../molecules/RegisterFormInputMolecule";
+import FormInputMolecule from "../../molecules/FormInputMolecule";
 // import { response } from 'express';
 import axios from "axios";
 
@@ -81,7 +81,7 @@ class AddUser extends Component {
         <div className="card-body">
           <form onSubmit={this.onHandleSubmit}>
             <div className="mb-2">
-              <RegisterFormInputMolecule
+              <FormInputMolecule
                 label="Full Name"
                 id="fullName"
                 name="fullName"
@@ -93,7 +93,7 @@ class AddUser extends Component {
               />
             </div>
             <div className="mb-2">
-              <RegisterFormInputMolecule
+              <FormInputMolecule
                 label="User Name"
                 id="userName"
                 name="userName"
@@ -105,7 +105,7 @@ class AddUser extends Component {
               />
             </div>
             <div className="mb-2">
-              <RegisterFormInputMolecule
+              <FormInputMolecule
                 label="Password"
                 id="password"
                 name="password"

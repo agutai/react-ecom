@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-import RegisterFormInputMolecule from "../../molecules/RegisterFormInputMolecule";
+import FormInputMolecule from "../../molecules/FormInputMolecule";
 
 class AddClothingItem extends Component {
   state = {
@@ -80,7 +80,7 @@ class AddClothingItem extends Component {
         <div className="card-header h1 text-center">Add Clothing</div>
         <div className="card-body">
           <form onSubmit={this.onHandleSubmit}>
-            <RegisterFormInputMolecule
+            <FormInputMolecule
               id="title"
               type="text"
               label="Title"
@@ -91,7 +91,7 @@ class AddClothingItem extends Component {
               error={errors.title}
             />
 
-            <RegisterFormInputMolecule
+            <FormInputMolecule
               id="price"
               type="text"
               label="Price"
@@ -102,7 +102,7 @@ class AddClothingItem extends Component {
               error={errors.price}
             />
 
-            <RegisterFormInputMolecule
+            <FormInputMolecule
               id="colour"
               type="text"
               label="Colour"
@@ -113,7 +113,7 @@ class AddClothingItem extends Component {
               error={errors.colour}
             />
 
-            <RegisterFormInputMolecule
+            <FormInputMolecule
               id="size"
               type="text"
               label="Size"
@@ -124,7 +124,7 @@ class AddClothingItem extends Component {
               error={errors.size}
             />
 
-            <RegisterFormInputMolecule
+            <FormInputMolecule
               id="type"
               type="text"
               label="Type"
@@ -135,7 +135,7 @@ class AddClothingItem extends Component {
               error={errors.type}
             />
 
-            <RegisterFormInputMolecule
+            <FormInputMolecule
               id="material"
               type="text"
               label="Material"
