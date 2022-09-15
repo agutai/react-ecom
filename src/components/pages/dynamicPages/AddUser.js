@@ -17,6 +17,7 @@ class AddUser extends Component {
 
   onHandleSubmit = (e) => {
     e.preventDefault();
+
     const { fullName, userName, password } = this.state;
 
     if (fullName === "") {
@@ -34,9 +35,9 @@ class AddUser extends Component {
       return;
     }
 
-    const newUser = { fullName, userName, password };
+    // const newUser = { fullName, userName, password };
 
-    console.log(newUser);
+    // console.log(newUser);
 
     // fetch("http://localhost:8080/api/v1/ecommerce/user", {
     //   method: "POST",
@@ -47,9 +48,27 @@ class AddUser extends Component {
     //   body: newUser,
     // });
 
-    axios.post("http://localhost:8080/api/v1/ecommerce/user", newUser);
+    // axios.post("http://localhost:8080/api/v1/ecommerce/user", newUser);
 
-    this.setState({ fullName: "", userName: "", password: "" });
+    var newUser = { fullName, userName, password };
+
+    var axios = require("axios");
+    var config = {
+      method: "post",
+      url: "http://localhost:8080/api/v1/ecommerce/user",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: newUser,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   render() {
@@ -64,6 +83,7 @@ class AddUser extends Component {
             <div className="mb-2">
               <RegisterFormInputMolecule
                 label="Full Name"
+                id="fullName"
                 name="fullName"
                 placeholder="Please enter your full name."
                 value={fullName}
@@ -75,6 +95,7 @@ class AddUser extends Component {
             <div className="mb-2">
               <RegisterFormInputMolecule
                 label="User Name"
+                id="userName"
                 name="userName"
                 placeholder="Please enter your user name."
                 value={userName}
@@ -86,6 +107,7 @@ class AddUser extends Component {
             <div className="mb-2">
               <RegisterFormInputMolecule
                 label="Password"
+                id="password"
                 name="password"
                 placeholder="Please enter your password."
                 value={password}
