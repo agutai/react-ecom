@@ -1,9 +1,9 @@
+import axios from "axios";
 import React, { Component } from "react";
 import FormInputMolecule from "../../molecules/FormInputMolecule";
 
 class AddShoeItem extends Component {
   state = {
-    seller: "",
     title: "",
     price: "",
     colour: "",
@@ -19,11 +19,6 @@ class AddShoeItem extends Component {
   onHandleSubmit = (e) => {
     e.preventDefault();
     const { seller, title, price, colour, shoeSize, style } = this.state;
-
-    if (seller === "") {
-      this.setState({ errors: { seller: "Username required" } });
-      return;
-    }
 
     if (title === "") {
       this.setState({ errors: { title: "Title required" } });
@@ -50,29 +45,28 @@ class AddShoeItem extends Component {
       return;
     }
 
-    const newShoeItem = {
-      seller: { seller },
-      title: { title },
-      price: { price },
-      colour: { colour },
-      shoeSize: { shoeSize },
-      style: { style },
-    };
+    const newShoeItem = { title, price, colour, shoeSize, style };
     console.log(newShoeItem);
+    //axios send the post request with new employeed to backend
+    axios.post(
+      "http://localhost:8080/api/v1/ecommerce/item/shoeItem",
+      newShoeItem
+    );
 
     this.setState({
-      seller: "",
       title: "",
       price: "",
       colour: "",
       shoeSize: "",
       style: "",
     });
+
+    //redirect to home page
+    // window.location.replace("http://localhost:3000/");
   };
 
   render() {
-    const { seller, title, price, colour, shoeSize, style, errors } =
-      this.state;
+    const { title, price, colour, shoeSize, style, errors } = this.state;
     return (
       <div className="card">
         <div className="card-header text-center">
@@ -80,17 +74,6 @@ class AddShoeItem extends Component {
         </div>
         <div className="card-body">
           <form onSubmit={this.onHandleSubmit}>
-            <div className="mb-2">
-              <FormInputMolecule
-                name="seller"
-                label="Username"
-                type="text"
-                value={seller}
-                placeholder="Please enter your username."
-                onChange={this.onHandleChange}
-                error={errors.username}
-              />
-            </div>
             <div className="mb-2">
               <FormInputMolecule
                 name="title"
@@ -146,6 +129,7 @@ class AddShoeItem extends Component {
                 error={errors.style}
               />
             </div>
+            <input type="submit" className="btn btn-success" value="register" />
           </form>
         </div>
       </div>
