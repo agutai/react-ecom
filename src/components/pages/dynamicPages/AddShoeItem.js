@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import FormInputMolecule from "../../molecules/FormInputMolecule";
+import { Navigate } from "react-router-dom";
 
 class AddShoeItem extends Component {
   state = {
@@ -66,6 +67,9 @@ class AddShoeItem extends Component {
   };
 
   render() {
+    if (!sessionStorage.getItem("userData")) {
+      return <Navigate to="/Login" replace />;
+    }
     const { title, price, colour, shoeSize, style, errors } = this.state;
     return (
       <div className="card">

@@ -51,7 +51,7 @@ class AddUser extends Component {
           <form onSubmit={this.onHandleSubmit}>
             <FormInputMolecule
               id="fullName"
-              label="fullName"
+              label="Full Name"
               name="fullName"
               placeholder="Full Name"
               value={fullName}

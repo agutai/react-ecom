@@ -17,7 +17,7 @@ class Product extends Component {
               pathname: "/Item/" + propId,
             }}
           >
-            {title} {id}
+            {title}
           </Link>
         </h1>
 
@@ -32,7 +32,16 @@ class Product extends Component {
             <li className="list-group-item">Buyer: {buyer}</li>
           </ul>
         </div>
-        <a href="/Order">Order</a>
+        <a
+          style={{
+            textAlign: "center",
+            textDecoration: "none",
+            color: "white",
+          }}
+          href="/Order"
+        >
+          Order
+        </a>
       </div>
     );
   }
