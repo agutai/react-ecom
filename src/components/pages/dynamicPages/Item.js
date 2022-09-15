@@ -8,8 +8,11 @@ class Item extends Component {
   };
 
   async componentDidMount() {
+    var url = window.location.pathname.split("/");
+    var urlId = url[2];
+
     const response = await fetch(
-      "http://localhost:8080/api/v1/ecommerce/item/id/1",
+      "http://localhost:8080/api/v1/ecommerce/item/id/" + urlId,
       {
         headers: {
           "Content-Type": "application/json",

@@ -133,7 +133,7 @@ class AddClothingItem extends Component {
               type="text"
               label="Type"
               name="type"
-              placeholder="Size"
+              placeholder="Type"
               value={type}
               onChange={this.onHandleChange}
               error={errors.type}

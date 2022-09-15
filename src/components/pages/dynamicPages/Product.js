@@ -4,8 +4,19 @@ import { Link } from "react-router-dom";
 
 class Product extends Component {
   render() {
-    const { id, title, price, colour, seller, buyer, type, size, material } =
-      this.props.product;
+    const {
+      id,
+      title,
+      price,
+      colour,
+      seller,
+      buyer,
+      type,
+      size,
+      material,
+      shoeSize,
+      style,
+    } = this.props.product;
     const propId = this.props.product.id;
 
     return (
@@ -25,11 +36,14 @@ class Product extends Component {
           <ul className="list-group">
             <li className="list-group-item">Price: {price}</li>
             <li className="list-group-item">Colour: {colour}</li>
-            <li className="list-group-item">Type: {type}</li>
-            <li className="list-group-item">Size: {size}</li>
-            <li className="list-group-item">Material: {material}</li>
-            <li className="list-group-item">Seller: {seller}</li>
-            <li className="list-group-item">Buyer: {buyer}</li>
+            <li className="list-group-item">
+              Type: {type}
+              {style}
+            </li>
+            <li className="list-group-item">
+              Size: {size}
+              {shoeSize}
+            </li>
           </ul>
         </div>
         <a
