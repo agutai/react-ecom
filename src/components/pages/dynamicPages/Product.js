@@ -57,6 +57,17 @@ class Product extends Component {
         >
           Order
         </a>
+        <a
+          style={{
+            textDecoration: "none",
+            color: "white",
+            marginBottom: "6px",
+            marginLeft: "3px",
+          }}
+          href="/Products"
+        >
+          Back To Products List
+        </a>
       </div>
     );
   }
