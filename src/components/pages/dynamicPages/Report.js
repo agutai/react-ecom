@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FormInputMolecule from "../../molecules/FormInputMolecule";
+import { Navigate } from "react-router-dom";
 
 class Report extends Component {
   state = { itemId: "", issue: "", errors: {} };
@@ -32,6 +33,9 @@ class Report extends Component {
   };
 
   render() {
+    if (!sessionStorage.getItem("userData")) {
+      return <Navigate to="/Login" replace />;
+    }
     const { itemId, issue, errors } = this.state;
     return (
       <div className="card">

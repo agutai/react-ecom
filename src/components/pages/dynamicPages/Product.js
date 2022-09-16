@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "./Product.css";
 
 class Product extends Component {
   render() {
@@ -20,10 +21,10 @@ class Product extends Component {
     const propId = this.props.product.id;
 
     return (
-      <div className="card bg-info m-2 p-1">
+      <div style={{ backgroundColor: "orange" }} className="card m-2 p-1">
         <h1 className="card-header h4 text-white text-center bg-default">
-          <i className="fa fa-user mx-2" aria-hidden="true"></i>
           <Link
+            id="link_Styles"
             to={{
               pathname: "/Item/" + propId,
             }}
